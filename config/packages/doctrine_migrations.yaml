@@ -1,0 +1,8 @@
+doctrine_migrations:
+    dir_name: '%kernel.project_dir%/app/DoctrineMigrations'
+    namespace: Application\Migrations
+    table_name: migration_versions
+    executed_at_column_name: 'executed_at'
+    name: 'GF migrations'
+    organize_migrations: false
+    all_or_nothing: true

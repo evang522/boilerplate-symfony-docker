@@ -1,0 +1,15 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+easy_admin:
+  resource: "routes/easy_admin.yaml"
+
+api_docs:
+  methods: GET
+  path: /api/docs
+  controller: App\Presentation\ApiDocs\SwaggerController::uiAction
+
+api_docs_schema:
+  methods: GET
+  path: /api/docs/schema
+  controller: App\Presentation\ApiDocs\SwaggerController::schemaAction
