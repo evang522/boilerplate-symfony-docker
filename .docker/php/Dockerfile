@@ -26,7 +26,7 @@ RUN docker-php-ext-enable apcu
 ENV COMPOSER_MEMORY_LIMIT=-1
 ENV COMPOSER_HOME /var/www/composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer global require hirak/prestissimo
+#RUN composer global require hirak/prestissimo
 RUN composer global require maglnet/composer-require-checker
 RUN chown -R www-data:www-data $COMPOSER_HOME
 ENV PATH "${PATH}:/var/www/composer/vendor/bin"

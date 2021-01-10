@@ -91,6 +91,9 @@
             "config/routes/easy_admin.yaml"
         ]
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },

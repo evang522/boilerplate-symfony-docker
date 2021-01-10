@@ -2,7 +2,7 @@ version: '3'
 
 services:
   php:
-    container_name: gf-php
+    container_name: symfony-php
     build: ./.docker/php
     depends_on:
       - pgsql
@@ -15,9 +15,8 @@ services:
       APP_ENV: dev
       DATABASE_URL: "postgres://postgresql:postgresql@pgsql:5432/glaubensfutter"
     networks:
-      gf-network:
+      symfony-network:
         ipv4_address: 10.201.0.3
-      gf:
   nginx:
     image: nginx:1.15.3-alpine
 #    restart: on-failure
@@ -29,12 +28,11 @@ services:
     ports:
       - "80:80"
     networks:
-      gf-network:
+      symfony-network:
         ipv4_address: 10.201.0.6
-      gf:
 
   pgsql:
-    container_name: gf-pgsql
+    container_name: symfony-pgsql
     build: ./.docker/db
     volumes:
       - /var/lib/postgresql/data
@@ -44,16 +42,14 @@ services:
       POSTGRES_USER: postgresql
       POSTGRES_PASSWORD: postgresql
     networks:
-      gf-network:
+      symfony-network:
         ipv4_address: 10.201.0.4
-      gf:
 networks:
-  gf-network:
+  symfony-network:
     driver: bridge
     ipam:
       config:
         - subnet: "10.201.0.0/24"
-  gf:
-    external: true
+
 
 # Hosts
